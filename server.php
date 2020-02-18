@@ -20,5 +20,5 @@ if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
 }
 
 require_once __DIR__.'/public/index.php';
-echo 456456;
+echo 456456;echo 5464;
 var_dump($s);
