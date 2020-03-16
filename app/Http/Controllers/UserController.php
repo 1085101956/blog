@@ -32,7 +32,7 @@ class UserController extends Controller {
      */
     public function store(Request $request) {
         $all = $request->except('_token');//获取除token外的全部
-        $input = $request->all();var_dump($input);
+        $input = $request->all();var_dump($input);exit;
         $id = User::create(['user_name' => $input['name'],'user_pass' => $all['password']]);
         if($id) {
             return redirect('user/index');

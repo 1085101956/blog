@@ -102,9 +102,10 @@ class Code{
 		for ($i = 0; $i < $this->codeLen; $i++) {
 			$code .= $this->codeStr [mt_rand(0, strlen($this->codeStr) - 1)];
 		}
+
 		$this->code = strtoupper($code);
-		// dd($this->code);
 		Session::put('code',$this->code);
+		//echo Session()->get('code');
         // session(['code' => $this->code]);
 //		$_SESSION['code'] = $this->code;
 	}
