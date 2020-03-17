@@ -125,7 +125,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(empty($id)){
+            return json_encode(['status' => 0,'msg' => '必选参数不能为空']);
+        }
+        $user = User::find($id);
+        $post = $request->all();
+        $user->email = $post['email'];
+        $user->phone = $post['phone'];
+        if(!empty($post['password'])) {
+            $user->password = $post['password'];
+        }
+        $res = $user->save();
+        if($res)
+            return json_encode(['status' => 1,'msg' => '修改成功']);
+        return json_encode(['status' => 0,'msg' => '修改失败']);
     }
 
     /**
